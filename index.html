@@ -4,122 +4,233 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Bitácora Clara Solano</title>
-    <link rel="icon" href="c:\Users\Alumno Capouilliez\Documents\Solano11F\Recursos\ing\LOGOC.png">
+    <link rel="icon" href="Recursos/ing/LOGOC.png">
+    
+    <!-- Fuente moderna Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+
     <style>
-        html, body{
-            height: 100%;
-            margin: 0%;
-            font-family: arial, sans-serif;
+        * {
+            box-sizing: border-box;
         }
-        body{
+
+        html, body {
+            height: 100%;
+            margin: 0;
+            font-family: 'Poppins', Arial, sans-serif;
+            background-color: #f8f4f9;
+            color: #333;
+        }
+
+        body {
             display: flex;
             flex-direction: column;
             text-align: center;
         }
-        header{
-            padding: 20px;
-            background-color: rgb(215, 172, 216);
-        }
-        h1{
-            color: white;
-            text-shadow:0 0 5px #a020f0,
-                        0 0 10px #a020f0,
-                        0 0 20px #a020f0,
-                        0 0 40px #9400d3;
-        }
-        main{
-            flex: 1;
-            padding: 20px;
-            max-width: 1500px;
-            margin: 0 auto;
-        }
-        .semana {
-            background-color: #ffffff;
-            border-radius: 12px;
-            padding: 20px;
-            margin: 20px 0;
-            width: 100%;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
-            transition: transform 0.2s ease, box-shadow 0.2s ease;
-            }
-        .semana:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+
+        header {
+            padding: 30px 20px;
+            background: linear-gradient(135deg, #d7acd8 0%, #b8860b 0%, #a020f0 100%);
+            box-shadow: 0 4px 15px rgba(148, 0, 211, 0.2);
         }
 
-        footer{
+        h1 {
+            color: #ffffff;
+            margin: 0;
+            font-size: 2.2rem;
+            letter-spacing: 1px;
+            text-shadow: 0 0 10px rgba(160, 32, 240, 0.8),
+                         0 0 20px rgba(148, 0, 211, 0.6);
+        }
+
+        main {
+            flex: 1;
+            padding: 40px 20px;
+            max-width: 1100px;
+            margin: 0 auto;
+            width: 100%;
+        }
+
+        .subtitulo-main {
+            color: #6a1b9a;
+            font-size: 1.3rem;
+            margin-bottom: 30px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+        }
+
+        /* --- ESTILO SOBRESITO DE CARTA --- */
+        .semana {
+            position: relative;
+            background-color: #ffffff;
+            border-radius: 4px 4px 16px 16px;
+            padding: 35px 25px 25px 25px;
+            margin: 45px 0;
+            width: 100%;
+            border: 2px solid #e1bee7;
+            box-shadow: 0 10px 20px rgba(106, 27, 154, 0.08);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        /* Solapa triangular del sobre */
+        .semana::before {
+            content: "";
+            position: absolute;
+            top: -20px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 0;
+            height: 0;
+            border-left: 40px solid transparent;
+            border-right: 40px solid transparent;
+            border-bottom: 20px solid #d7acd8;
+            filter: drop-shadow(0 -2px 2px rgba(0,0,0,0.05));
+        }
+
+        /* Borde superior decorativo del sobre */
+        .semana::after {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 6px;
+            background: linear-gradient(90deg, #d7acd8, #ab47bc, #d7acd8);
+            border-radius: 4px 4px 0 0;
+        }
+
+        .semana:hover {
+            transform: translateY(-7px);
+            box-shadow: 0 15px 30px rgba(106, 27, 154, 0.18);
+        }
+
+        .semana h3 {
+            color: #4a148c;
+            margin-top: 5px;
+            margin-bottom: 12px;
+            font-size: 1.5rem;
+        }
+
+        .semana p {
+            color: #555;
+            font-size: 1rem;
+            line-height: 1.5;
+            margin-bottom: 20px;
+        }
+
+        /* Estilos de multimedia responsive */
+        iframe, video, img {
+            width: 100%;
+            max-height: 520px;
+            border-radius: 10px;
+            border: 1px solid #e0e0e0;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+            object-fit: contain;
+            background-color: #000;
+        }
+
+        img {
+            background-color: #fff;
+        }
+
+        footer {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 15px 50px;
-            border-top: 1px solid rgb(55, 22, 81);
-            background-color: rgb(215, 172, 216);
+            padding: 20px 50px;
+            border-top: 2px solid #8e24aa;
+            background-color: #d7acd8;
+            color: #4a148c;
+            font-weight: 600;
         }
+
         .logo {
             transition: transform 0.3s ease;
+            filter: drop-shadow(0 2px 4px rgba(0,0,0,0.1));
         }
 
         .logo:hover {
-            transform: scale(1.1);
+            transform: scale(1.08);
+        }
+
+        @media (max-width: 600px) {
+            footer {
+                flex-direction: column;
+                gap: 15px;
+                padding: 20px;
+            }
         }
     </style>
 </head>
 <body> 
+
     <header>
         <h1>Bitácora Segunda y Tercera Unidad</h1>
     </header>
+
     <main>
-        <h4>Contenido de la página WEB</h4>
+        <h2 class="subtitulo-main">Contenido de la página WEB</h2>
+
+        <!-- SESIÓN 1 -->
         <div class="semana">
-            <h3>Introducción a arduino</h3>
-            <p>hoy aprendimos sobre la estructura básica de HTML y cómo personalizar el entorno de Visual Studio Co</p>
-            <iframe src="Recursos/pdf/arduinocs.pdf" width="100%" height="500px">
-            </iframe>
+            <h3>Introducción a Arduino</h3>
+            <p>Hoy aprendimos sobre la estructura básica de HTML y cómo personalizar el entorno de Visual Studio Code.</p>
+            <iframe src="Recursos/pdf/arduinocs.pdf" height="500px"></iframe>
         </div>
 
+        <!-- SESIÓN 2 -->
         <div class="semana">
             <h3>Sesión 2</h3>
-            <video width="100%" height="500px" controls>
-        <source src="Recursos/video/circuitocs.mp4" type="video/mp4">
-    </video>
-
-            <div class="semana 3 y 4">
-            <h3>encendido</h3>
-            <p>hpy aprendimos como hacer un circuito que funcione </p>
-            <iframe src="WhatsApp Image 2026-07-20 at 2.48.34 PM.jpeg" width="100%" height="500px">
-            </iframe>
+            <p>Trabajo con circuitos iniciales y simulación.</p>
+            <video controls>
+                <source src="Recursos/video/circuitocs.mp4" type="video/mp4">
+                Tu navegador no soporta el formato de video.
+            </video>
         </div>
-             <div class="semana">
-            <h3>Sesión 6</h3>
-                 <p>sensor ultrasonico que mide distancias  </p>
-            <video width="100%" height="500px" controls>
-        <source src="video clara solano (1).mp4" type="video/mp4">
-    </video>
 
-                 <div class="semana">
-            <h3>Sesión 7</h3>
-                 <p>sensor pir que mide calor  </p>
-            <video width="100%" height="500px" controls>
-        <source src=" Grabación 2026-07-22 135705 3.mp4" type="video/mp4">
-    </video>
-
-                     <div class="semana 3 y 4">
-            <h3>semana 5</h3>
-            <p>hicimos un semaforo que funciones y prenda las luces led  </p>
-            <iframe src="WhatsApp Image 2026-07-20 at 2.47.50 PM.jpeg" width="100%" height="500px">
-            </iframe>
+        <!-- SESIÓN 3 Y 4 -->
+        <div class="semana">
+            <h3>Sesión 3 y 4: Encendido</h3>
+            <p>Hoy aprendimos cómo hacer un circuito que funcione correctamente.</p>
+            <img src="WhatsApp Image 2026-07-20 at 2.48.34 PM.jpeg" alt="Evidencia de circuito encendido">
         </div>
-                WhatsApp Image 2026-07-20 at 2.47.50 PM.jpeg
 
-                     
-
-            
-</div>
+        <!-- SEMANA 5 (Reordenada aquí) -->
+        <div class="semana">
+            <h3>Semana 5: Semáforo LED</h3>
+            <p>Hicimos un semáforo que funcione y prenda las luces LED secuencialmente.</p>
+            <img src="WhatsApp Image 2026-07-20 at 2.47.50 PM.jpeg" alt="Evidencia de proyecto semáforo">
         </div>
+
+        <!-- SESIÓN 6 -->
+        <div class="semana">
+            <h3>Sesión 6: Sensor Ultrasónico</h3>
+            <p>Implementación del sensor ultrasónico para medir distancias en tiempo real.</p>
+            <video controls>
+                <source src="video clara solano (1).mp4" type="video/mp4">
+                Tu navegador no soporta el formato de video.
+            </video>
+        </div>
+
+        <!-- SESIÓN 7 -->
+        <div class="semana">
+            <h3>Sesión 7: Sensor PIR</h3>
+            <p>Práctica con el sensor PIR para detección de movimiento y calor corporal.</p>
+            <video controls>
+                <source src="Grabación 2026-07-22 135705 3.mp4" type="video/mp4">
+                Tu navegador no soporta el formato de video.
+            </video>
+        </div>
+
     </main>
+
     <footer>
         <span>@clarasolaano</span>
-        <img class=logo src="https://www.capouilliez.edu.gt/assets/img/logo.png" height="50" width="200">
+        <img class="logo" src="https://www.capouilliez.edu.gt/assets/img/logo.png" alt="Logo Colegio Capouilliez" height="50" width="200">
     </footer>
+
 </body>
 </html>
